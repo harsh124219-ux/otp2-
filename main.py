@@ -88,6 +88,7 @@ from handlers.session import (
     session_states,
 )
 from handlers.fsub import check_fsub, recheck_fsub_callback
+from keep_alive import start_keep_alive
 
 
 # ─────────────────────────────────────────────
@@ -475,8 +476,11 @@ async def main():
         except Exception as e:
             logger.warning(f"⚠️ Could not send startup message to admin: {e}")
 
-        # 6. Check for incomplete login sessions (Heroku restart recovery)
+        # 6. Check for incomplete login sessions (restart recovery)
         asyncio.create_task(check_incomplete_sessions(app))
+
+        # 7. Start keep-alive self-ping (prevents Render/Railway sleep)
+        start_keep_alive()
 
         logger.info("🟢 Bot is ready and polling!")
 

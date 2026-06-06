@@ -540,7 +540,9 @@ async def _step_email_otp(client, message: Message, admin_id: int, state: dict) 
         return
 
     try:
-        await temp_client.confirm_login_email(email_code)
+        # Use the raw Telegram API to confirm the password email code
+        import pyrogram.raw.functions.account as account_funcs
+        await temp_client.invoke(account_funcs.ConfirmPasswordEmail(code=email_code))
         state["email_verified"] = True
         state["step"]           = "running"
         await message.reply("✅ **Email verified!**\n\n⚙️ Continuing automation...")
@@ -548,7 +550,7 @@ async def _step_email_otp(client, message: Message, admin_id: int, state: dict) 
 
     except Exception as e:
         err = str(e).lower()
-        if any(x in err for x in ["code_invalid", "code_expired", "invalid", "expired"]):
+        if any(x in err for x in ["code_invalid", "code_expired", "invalid", "expired", "wrong"]):
             await message.reply(
                 "❌ **Invalid or expired email code!**\n\n"
                 "Please check your email and enter the code again:"
