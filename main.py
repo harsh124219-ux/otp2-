@@ -508,3 +508,4 @@ if __name__ == "__main__":
         logger.critical(f"💥 Critical error in main: {e}")
         traceback.print_exc()
         sys.exit(1)
+

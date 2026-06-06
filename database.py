@@ -378,3 +378,4 @@ def close_order(order_id: str) -> None:
         )
         # Clear session from account doc too for security
         clear_account_session(order["phone"])
+

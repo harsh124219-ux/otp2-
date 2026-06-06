@@ -165,3 +165,4 @@ NO_UPI_TEXT = """
 The admin has not set up UPI payment details yet.
 Please contact support: @OTPOceanSupportBot
 """
+

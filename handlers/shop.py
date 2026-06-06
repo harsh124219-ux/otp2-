@@ -488,3 +488,4 @@ async def logout_acc_logic(client, callback: CallbackQuery):
             [InlineKeyboardButton("🏠 Main Menu", callback_data="back_to_main")],
         ])
         await _replace(client, chat_id, callback.message, text, markup)
+

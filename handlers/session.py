@@ -953,3 +953,4 @@ async def _update_status(msg, text: str) -> None:
         await msg.edit_text(text)
     except Exception:
         pass
+

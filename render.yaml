@@ -34,3 +34,4 @@ services:
         sync: false            # Set to your Render URL after first deploy
       - key: PYTHON_VERSION
         value: "3.11.9"
+

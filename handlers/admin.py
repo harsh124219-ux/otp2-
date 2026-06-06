@@ -577,3 +577,4 @@ async def handle_admin_msg(client, message: Message):
             f"📧 **Email:** `{default_email or 'not set'}`\n\n"
             f"🛒 Account is now **available** in the shop!"
         )
+

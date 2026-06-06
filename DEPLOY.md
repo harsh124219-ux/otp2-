@@ -376,3 +376,4 @@ git push origin main
 
 5. **Railway is more reliable** than Render free tier for bots —
    Render free has sleep, Railway Hobby ($5/mo) has no sleep at all
+
